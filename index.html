@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Memory Album</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Viewport Fix */
+        .login-card {
+            max-height: 95vh !important;
+            padding: 1.5rem 2rem !important;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-header {
+            margin-bottom: 1.25rem !important;
+        }
+
+        .logo {
+            width: 65px !important;
+            height: 65px !important;
+            margin: 0 auto 0.75rem !important;
+        }
+
+        .login-header h1 {
+            font-size: 1.6rem !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        .login-header p {
+            font-size: 0.85rem !important;
+            line-height: 1.3 !important;
+        }
+
+        .login-form {
+            margin-bottom: 1.25rem !important;
+        }
+
+        .input-group {
+            margin-bottom: 1.25rem !important;
+        }
+
+        .primary-btn {
+            padding: 0.9rem 1.5rem !important;
+            margin-bottom: 0.75rem !important;
+        }
+
+        .features {
+            gap: 1.75rem !important;
+            margin-top: 0.5rem !important;
+        }
+
+        .feature {
+            font-size: 0.75rem !important;
+            gap: 0.3rem !important;
+        }
+
+        .feature-icon {
+            font-size: 1.1rem !important;
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 1.25rem 1.5rem !important;
+                max-height: 98vh !important;
+            }
+
+            .logo {
+                width: 55px !important;
+                height: 55px !important;
+                margin: 0 auto 0.5rem !important;
+            }
+
+            .login-header h1 {
+                font-size: 1.4rem !important;
+                margin-bottom: 0.4rem !important;
+            }
+
+            .features {
+                gap: 1.5rem !important;
+                margin-top: 0.25rem !important;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="overlay">
+        <div class="login-container">
+            <div class="background-pattern"></div>
+            <div class="login-card">
+                <div class="login-header">
+                    <div class="logo">
+                        <div class="logo-inner">
+                            <span class="icon">📸</span>
+                            <div class="logo-shine"></div>
+                        </div>
+                    </div>
+                    <h1>Digital Memory Album</h1>
+                    <p>Transform your precious moments into an interactive 3D experience</p>
+                </div>
+
+                <div class="login-form">
+                    <div class="input-group">
+                        <span class="input-icon">🔑</span>
+                        <input type="text" id="qrInput" placeholder="Enter your album code (e.g. 614109)"
+                            autocomplete="off">
+                        <div class="input-border"></div>
+                    </div>
+
+                    <button id="startBtn" class="primary-btn">
+                        <span class="btn-content">
+                            <span class="btn-icon">✨</span>
+                            <span class="btn-text">Access Album</span>
+                        </span>
+                        <div class="btn-shine"></div>
+                    </button>
+
+                    <div id="login-status" class="status-message"></div>
+                </div>
+
+                <div class="login-footer">
+                    <div class="features">
+                        <div class="feature">
+                            <span class="feature-icon">🔒</span>
+                            <span>Secure</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">👥</span>
+                            <span>Private</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✨</span>
+                            <span>Beautiful</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="app-container" class="hidden">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <button id="backBtn" class="header-btn back-btn">
+                    <span class="icon">←</span>
+                    <span>Back</span>
+                </button>
+                <div class="header-title">
+                    <span class="icon">🖼️</span>
+                    <span id="albumTitle">Memory Album</span>
+                </div>
+                <div class="header-actions">
+                    <button class="header-btn" title="Fullscreen">
+                        <span class="icon">⛶</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="album-container">
+                <div class="book-base">
+                    <div class="book-shadow"></div>
+                    <div id="notebook" class="notebook"></div>
+                    <div class="book-spine"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <div class="nav-content">
+                <button id="prevBtn" class="nav-btn prev-btn">
+                    <span class="nav-icon">‹</span>
+                    <span class="nav-text">Previous</span>
+                </button>
+
+                <div class="page-info">
+                    <span id="pageIndicator">Sheet 0 / 0</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <button id="nextBtn" class="nav-btn next-btn">
+                    <span class="nav-text">Next</span>
+                    <span class="nav-icon">›</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
